@@ -60,7 +60,7 @@
   function lang() { var c = document.querySelector('input[name="language"]:checked'); return c ? c.value : ''; }
 
   function fallbackMailto() {
-    var subject = encodeURIComponent('Buyer call request — ' + (val('name') || 'New Lead'));
+    var subject = encodeURIComponent('Buyer call request - ' + (val('name') || 'New Lead'));
     var body = encodeURIComponent(
       'Name: ' + val('name') + '\n' +
       'Phone: ' + val('phone') + '\n' +
