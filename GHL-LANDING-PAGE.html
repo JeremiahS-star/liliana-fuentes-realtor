@@ -1,5 +1,5 @@
 <!-- ============================================================
-     LILIANA FUENTES - DIRECT BUYERS LANDING PAGE  [BUILD v4]
+     LILIANA FUENTES - DIRECT BUYERS LANDING PAGE  [BUILD v5]
      Paste this ENTIRE block into a GHL "Custom HTML/JavaScript" element.
      Self-contained: all CSS, JS and the photo are embedded.
      TIP: to send leads into GHL, replace the <form>...</form> inside
@@ -375,6 +375,22 @@
       document.body.style.setProperty('margin-top','0','important');
       document.body.style.setProperty('padding-top','0','important');
     }
+    if(document.documentElement){
+      document.documentElement.style.setProperty('margin-top','0','important');
+      document.documentElement.style.setProperty('padding-top','0','important');
+    }
+    killTopGap();
+  }
+  // Self-correcting: whatever still sits above us (sibling headers, spacers,
+  // builder chrome), measure the real offset and pull the block up by it.
+  function killTopGap(){
+    var el = document.querySelector('.lfl');
+    if(!el){ return; }
+    el.style.setProperty('margin-top','0','important');
+    var top = el.getBoundingClientRect().top + (window.pageYOffset || 0);
+    if(top > 0 && top < 400){
+      el.style.setProperty('margin-top', (-top) + 'px', 'important');
+    }
   }
   if(document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', unlock);
@@ -382,6 +398,7 @@
   window.addEventListener('load', unlock);
   setTimeout(unlock, 400);
   setTimeout(unlock, 1500);
+  window.addEventListener('resize', killTopGap);
 })();
 
 </script>
