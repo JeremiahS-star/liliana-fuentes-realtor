@@ -1,5 +1,5 @@
 <!-- ============================================================
-     LILIANA FUENTES - DIRECT BUYERS LANDING PAGE  [BUILD v3]
+     LILIANA FUENTES - DIRECT BUYERS LANDING PAGE  [BUILD v4]
      Paste this ENTIRE block into a GHL "Custom HTML/JavaScript" element.
      Self-contained: all CSS, JS and the photo are embedded.
      TIP: to send leads into GHL, replace the <form>...</form> inside
@@ -363,12 +363,17 @@
       var cs = window.getComputedStyle(p);
       p.style.setProperty('max-width','none','important');
       p.style.setProperty('width','auto','important');
-      p.style.setProperty('padding-left','0','important');
-      p.style.setProperty('padding-right','0','important');
+      p.style.setProperty('padding','0','important');
+      p.style.setProperty('margin-top','0','important');
+      p.style.setProperty('margin-bottom','0','important');
       if(cs.overflowX === 'hidden' || cs.overflow === 'hidden'){
         p.style.setProperty('overflow','visible','important');
       }
       p = p.parentElement; guard++;
+    }
+    if(document.body){
+      document.body.style.setProperty('margin-top','0','important');
+      document.body.style.setProperty('padding-top','0','important');
     }
   }
   if(document.readyState === 'loading'){
